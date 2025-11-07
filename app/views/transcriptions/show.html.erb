@@ -1,0 +1,47 @@
+<div style="max-width: 900px; margin: 50px auto; padding: 20px; font-family: system-ui, -apple-system, sans-serif;">
+  <div style="margin-bottom: 30px;">
+    <%= link_to "← Back to All Transcriptions", transcriptions_path, style: "color: #007bff; text-decoration: none; margin-bottom: 20px; display: inline-block;" %>
+  </div>
+
+  <div style="background: #f8f9fa; padding: 30px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 20px;">
+      <div>
+        <h1 style="color: #2c3e50; margin: 0 0 10px 0;">
+          <%= @transcription.title.presence || "Untitled Transcription" %>
+        </h1>
+        <p style="color: #6c757d; font-size: 14px; margin: 0;">
+          Created <%= @transcription.created_at.strftime("%B %d, %Y at %I:%M %p") %>
+        </p>
+      </div>
+      <span style="background: <%= @transcription.status == 'completed' ? '#28a745' : @transcription.status == 'processing' ? '#ffc107' : '#6c757d' %>; color: white; padding: 6px 16px; border-radius: 12px; font-size: 14px; font-weight: 500; text-transform: capitalize;">
+        <%= @transcription.status || 'pending' %>
+      </span>
+    </div>
+
+    <% if @transcription.audio_file.attached? %>
+      <div style="margin-bottom: 30px; padding: 20px; background: white; border-radius: 8px;">
+        <h3 style="color: #34495e; margin-top: 0;">Audio File</h3>
+        <audio controls style="width: 100%;">
+          <source src="<%= url_for(@transcription.audio_file) %>" type="<%= @transcription.audio_file.content_type %>">
+          Your browser does not support the audio element.
+        </audio>
+        <p style="color: #6c757d; font-size: 14px; margin-top: 10px;">
+          File: <%= @transcription.audio_file.filename.to_s %>
+        </p>
+      </div>
+    <% end %>
+
+    <div>
+      <h3 style="color: #34495e; margin-top: 0;">Transcription</h3>
+      <% if @transcription.text.present? %>
+        <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid #dee2e6;">
+          <p style="color: #333; line-height: 1.8; white-space: pre-wrap;"><%= @transcription.text %></p>
+        </div>
+      <% else %>
+        <p style="color: #6c757d; font-style: italic; padding: 20px; background: white; border-radius: 8px;">
+          Transcription is pending or not yet available...
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

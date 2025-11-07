@@ -1,0 +1,43 @@
+<div style="max-width: 900px; margin: 50px auto; padding: 20px; font-family: system-ui, -apple-system, sans-serif;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+    <h1 style="color: #2c3e50; margin: 0;">My Transcriptions</h1>
+    <%= link_to "New Transcription", new_transcription_path, style: "background: #007bff; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 500;" %>
+  </div>
+
+  <% if @transcriptions.any? %>
+    <div style="display: grid; gap: 20px;">
+      <% @transcriptions.each do |transcription| %>
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+            <div>
+              <h3 style="color: #34495e; margin: 0 0 5px 0;">
+                <%= transcription.title.presence || "Untitled Transcription" %>
+              </h3>
+              <p style="color: #6c757d; font-size: 14px; margin: 0;">
+                Uploaded <%= time_ago_in_words(transcription.created_at) %> ago
+              </p>
+            </div>
+            <span style="background: <%= transcription.status == 'completed' ? '#28a745' : transcription.status == 'processing' ? '#ffc107' : '#6c757d' %>; color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 500; text-transform: capitalize;">
+              <%= transcription.status || 'pending' %>
+            </span>
+          </div>
+          
+          <% if transcription.text.present? %>
+            <p style="color: #555; margin: 15px 0; line-height: 1.6;">
+              <%= truncate(transcription.text, length: 150) %>
+            </p>
+          <% else %>
+            <p style="color: #6c757d; font-style: italic;">No transcription yet...</p>
+          <% end %>
+
+          <%= link_to "View Details", transcription, style: "color: #007bff; text-decoration: none; font-weight: 500;" %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div style="text-align: center; padding: 60px 20px; background: #f8f9fa; border-radius: 12px;">
+      <p style="color: #6c757d; font-size: 18px; margin-bottom: 20px;">No transcriptions yet!</p>
+      <%= link_to "Upload Your First Audio File", new_transcription_path, style: "background: #007bff; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 500; display: inline-block;" %>
+    </div>
+  <% end %>
+</div>

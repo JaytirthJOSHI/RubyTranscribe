@@ -1,0 +1,30 @@
+<div style="max-width: 800px; margin: 50px auto; padding: 20px; font-family: system-ui, -apple-system, sans-serif;">
+  <h1 style="color: #2c3e50; text-align: center; margin-bottom: 10px;">RubyTranscribe weeee</h1>
+  <p style="text-align: center; color: #7f8c8d; font-size: 18px; margin-bottom: 40px;">
+   RubyTranscribe is a simple web application that allows you to transcribe audio to text using AI this is meant to produce text that sound like you truly and saugument you haveing to tyype every thign
+  </p>
+  
+  <div style="background: #f8f9fa; border-radius: 12px; padding: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <h2 style="color: #34495e; margin-top: 0;">Welcome!</h2>
+    <p style="color: #555; line-height: 1.6;">
+      This is your Ruby on Rails web application for audio transcription. 
+      Upload audio files and convert them to text using AI-powered speech-to-text technology.
+    </p>
+    
+    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #dee2e6;">
+      <h3 style="color: #34495e;">Getting Started</h3>
+      <ul style="color: #555; line-height: 1.8;">
+        <li>record your voice and transcribe it</li>
+        <li>Automatic transcription using AI</li>
+        <li>AI will then make your text sound like you truly said it and what you may have ment. it will be contextual in nature for </li>
+        <li>Edit and search your transcriptions</li>
+        <li>Download your transcriptions</li>
+      </ul>
+    </div>
+
+    <div style="margin-top: 30px; text-align: center;">
+      <%= link_to "View All Transcriptions", transcriptions_path, style: "background: #007bff; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 500; display: inline-block; margin-right: 10px;" %>
+      <%= link_to "Upload New Audio", new_transcription_path, style: "background: #28a745; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 500; display: inline-block;" %>
+    </div>
+  </div>
+</div>
