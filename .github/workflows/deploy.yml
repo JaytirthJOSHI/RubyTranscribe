@@ -1,0 +1,32 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd /path/to/your/app
+            git pull origin main
+            bundle install
+            sudo systemctl restart your-app-name
+          # Or use:
+          # script: |
+          #   cd /path/to/your/app
+          #   git pull
+          #   bundle install
+          #   pkill -f 'ruby app.rb'
+          #   nohup bundle exec rackup config.ru -p 4567 > app.log 2>&1 &
+

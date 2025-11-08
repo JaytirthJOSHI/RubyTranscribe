@@ -8,3 +8,6 @@ A simple static site generator built in Ruby that converts Markdown files into H
 - Convert Markdown content into HTML
 - Wrap HTML content inside customizable templates
 - Generate static HTML files (including index.html) for deployment
+
+
+ts curser adding rando stuff to read me. you may not add stuff thanks.

@@ -3,8 +3,8 @@ vendor/
 .bundle/
 
 # Output files
-output/
-*.html
+# output/ removed for now
+#*.html removed for now
 
 # Logs
 *.log

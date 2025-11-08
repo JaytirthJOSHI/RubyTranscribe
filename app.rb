@@ -115,7 +115,3 @@ get '/files' do
     content_type :json
     { files: files }.to_json
 end
-
-get '/' do
-    erb :index
-end
