@@ -19,3 +19,4 @@ This site is generated from Markdown files. You can edit this file (`content/ind
 - 🚀 Static site generation
 - 📝 Easy content management
 
+this was amp btw

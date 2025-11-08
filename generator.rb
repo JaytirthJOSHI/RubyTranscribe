@@ -86,7 +86,6 @@ def generate_site
   end
 end
 
-# Run the generator
 if __FILE__ == $PROGRAM_NAME
   generate_site
 end
