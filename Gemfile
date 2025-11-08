@@ -8,4 +8,4 @@ gem "kramdown", "~> 2.4"
 gem "kramdown-parser-gfm", "~> 1.1"
 
 gem "sinatra", "~> 3.0"
-gem "sinatea-contrib", "~> 3.0"
+gem "sinatra-contrib", "~> 3.0"
