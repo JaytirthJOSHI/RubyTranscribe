@@ -103,3 +103,10 @@ post '/generate' do
         {
             |f| file.basename(f)
         }
+
+        content_type :json
+        {
+            files: files
+    }.to_json
+    end
+end
