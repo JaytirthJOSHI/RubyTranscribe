@@ -2,8 +2,8 @@ GEM
   remote: https://rubygems.org/
   specs:
     base64 (0.3.0)
-    kramdown (2.5.1)
-      rexml (>= 3.3.9)
+    kramdown (2.5.2)
+      rexml (>= 3.4.4)
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     multi_json (1.17.0)
@@ -33,7 +33,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  kramdown (~> 2.4)
+  kramdown (~> 2.5)
   kramdown-parser-gfm (~> 1.1)
   sinatra (~> 3.0)
   sinatra-contrib (~> 3.0)
